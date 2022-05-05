@@ -22,6 +22,7 @@ export default function Login() {
         formState.email,
         formState.password
       );
+      loginWasSuccessful && history.replace(from);
     } catch (error) {
       setError(error.message);
     }
@@ -39,7 +40,7 @@ export default function Login() {
     <>
       <h3>You must log in to view the page at {from.pathname}</h3>
       <form onSubmit={handleLogin} className={styles.loginForm}>
-        <label htmlFor={'Email'}>Email</label>
+        <label htmlFor={'email'}>Email</label>
         <input
           onChange={handleFormChange}
           id="email"
@@ -47,7 +48,7 @@ export default function Login() {
           type="email"
           value={formState.email}
         />{' '}
-        <label htmlFor={'Password'}>Password</label>
+        <label htmlFor={'password'}>Password</label>
         <input
           onChange={handleFormChange}
           id="password"
